@@ -27,6 +27,8 @@ CMD ["python", "yourFile.py"]
 
 The `FROM` instruction initializes a new build stage and sets the Base Image for subsequent instructions. As such, a valid Dockerfile must start with a `FROM` instruction.
 
+The `COPY` instruction in a Dockerfile is used to copy files or directories from the host machine to the container image. 
+
 ## Command line
 
 ```
