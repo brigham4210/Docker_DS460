@@ -19,7 +19,7 @@ create a file named `Dockerfile`
 then put the following script into the file and save
 
 ```
-FROM python:alpine
+FROM python:slim
 COPY . /app
 WORKDIR /app
 CMD ["python", "yourFile.py"]
