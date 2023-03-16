@@ -31,6 +31,8 @@ The `COPY` in a Dockerfile is used to copy files or directories from the host ma
 
 The `WORKDIR` is similar to the `cd` what we normally know.
 
+The `CMD` command specifies the instruction that is to be executed when a Docker container starts.
+
 ## Command line
 
 ```
