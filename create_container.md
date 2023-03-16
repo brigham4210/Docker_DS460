@@ -31,7 +31,9 @@ The `COPY` in a Dockerfile is used to copy files or directories from the host ma
 
 The `WORKDIR` is similar to the `cd` what we normally know.
 
-The `CMD` command specifies the instruction that is to be executed when a Docker container starts.
+The `CMD` specifies the instruction that is to be executed when a Docker container starts.
+
+The `RUN` lets you execute commands inside of your Docker image. These commands get executed once at build time and get written into your Docker image as a new layer.
 
 ## Command line
 
