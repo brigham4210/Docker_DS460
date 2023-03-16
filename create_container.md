@@ -25,9 +25,11 @@ WORKDIR /app
 CMD ["python", "yourFile.py"]
 ```
 
-The `FROM` instruction initializes a new build stage and sets the Base Image for subsequent instructions. As such, a valid Dockerfile must start with a `FROM` instruction.
+The `FROM` initializes a new build stage and sets the Base Image for subsequent instructions. As such, a valid Dockerfile must start with a `FROM` instruction.
 
-The `COPY` instruction in a Dockerfile is used to copy files or directories from the host machine to the container image. 
+The `COPY` in a Dockerfile is used to copy files or directories from the host machine to the container image. 
+
+The `WORKDIR` is similar to the `cd` what we normally know.
 
 ## Command line
 
