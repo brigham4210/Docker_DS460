@@ -27,4 +27,5 @@ If we run `docker ps -a` again, we can see all our containers. We can remove con
 `docker stop some_container`
 
 Now we can use `docker rm some_container` to delete a container.
-We can also delete images with `docker rmi some_image
+We can also delete images with `docker rmi some_image`. You cannot delete an image if any container exists that uses the image.
+
