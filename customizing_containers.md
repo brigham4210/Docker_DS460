@@ -3,17 +3,39 @@
 [Previous: Create a Container](create_container.md) | [Next: Sharing Images](sharing-images.md)
 
 ## Editing Containers
-A container will only keep running while executing some command. A container made from our image will run for a short time since 'hello_world' terminates quickly.  
-`docker run my_image`  
-If we run it again with a command that won't terminate, we can view it in active containers.  
-
-`docker run -d my_image`
-* The flag `-d` in this `run` command runs the container 'detatched' from our terminal, in the backround.
-* `bash` is the command we are running, which is the terminal in Linux. The container will start by running this instead of the entrypoint set earlier.
-
-> You can abreviate a container or image ID in docker commands. e.g. Making a container from an image with an ID `7412b405464f` can be run as "`docker run 741`" as long as no other image ID starts with `741`.
+We can show active containers with "`docker ps`". You'll notice that nothing is active. Containers will be closed after executing their commands, and 'hello_world' only takes a moment to run. Run `docker ps -a` to show all containers.
 
 
-Go into editing containers
-   > Changing Python file executed on startup, or changing other behavior. This is done by executing a container but telling it to run a different command, such as bash
+If we run a new container with a command that won't terminate, we can view it in active containers:  
+`docker run -it my_image bash`
+* `bash` is the command we are running. In this case, the terminal in Linux inside the container. The container will start by running this command, ignoring the entrypoint (more on entrypoints later).
+* The flags in `-it` let us use the terminal inside the container from outside.
+> You can abreviate any container or image ID in docker commands. e.g. an image with an ID `7412b405464f` can be run as "`docker run 741`" as long as no other image ID starts with `741`.  
+
+You should see the command change to show the path inside your container. You can run any bash command here like a full computer. For now, we'll add a new file:
+
+`echo "print('Our new file')" > another.py`
+
+Run `ls` to show our new file is present in the directory.
+
+We can close the container with `exit`, which will close `bash`. Now we can run our new program:  
+`docker exec my_container python another.py`
+* `exec` makes a running container execute what follows.
+
+## Managing Containers
+Run a new container from our image:  
+`docker run -d -it our_image bash`
+* The `-d` flag runs the container detached, in the backround.
+
+Now try running our command again:  
+`docker exec new_container python another.py`
+
+Containers save changes made to an image, but not the image itself. Our image doesn't contain our file. Our file only exists in the other container.
+
+If we run `docker ps -a` again, we can see all our containers. We can remove containers, but only if they are not running first:
+`docker stop some_container`
+
+Now we can use `docker rm some_container` to delete a container.
+We can also delete images with `docker rmi some_image`. You cannot delete an image if any container exists using the image.
+
 
