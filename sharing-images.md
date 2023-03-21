@@ -34,3 +34,11 @@ Examine the results:
 [https://hub.docker.com/repository/docker/kaychoro/ds460-demo/general](https://hub.docker.com/repository/docker/kaychoro/ds460-demo/general)
 
 ## Test by having someone pull your docker image and show that it exists
+
+```
+docker pull kaychoro/ds460-demo
+```
+
+```
+docker run kaychoro/ds460-demo
+```
