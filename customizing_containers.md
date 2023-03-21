@@ -23,9 +23,19 @@ We can close the container with `exit`, which will close `bash`. Now we can run 
 * `exec` makes a running container execute what follows.
 
 ## Managing Containers
+Run a new container from our image:  
+`docker run -d -it our_image bash`
+* The `-d` flag runs the container detached, in the backround.
+
+Now try running our command again:  
+`docker exec new_container python another.py`
+
+Containers save changes made to an image, but not the image itself. Our image doesn't contain our file. Our file only exists in the other container.
+
 If we run `docker ps -a` again, we can see all our containers. We can remove containers, but only if they are not running first:
 `docker stop some_container`
 
 Now we can use `docker rm some_container` to delete a container.
-We can also delete images with `docker rmi some_image`. You cannot delete an image if any container exists that uses the image.
+We can also delete images with `docker rmi some_image`. You cannot delete an image if any container exists using the image.
+
 
